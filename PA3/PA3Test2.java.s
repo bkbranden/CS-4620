@@ -19,9 +19,31 @@ main:
     /* Need to call this so that the meggy library gets set up */
 
 
-    # Load constant int 1
-    ldi    r24,lo8(1)
-    ldi    r25,hi8(1)
+    #### if statement
+
+    # True/1 expression
+    ldi    r22, 1
+    # push one byte expression onto stack
+    push   r22
+
+    # load condition and branch if false
+    # load a one byte expression off stack
+    pop    r24
+    #load zero into reg
+    ldi    r25, 0
+
+    #use cp to set SREG
+    cp     r24, r25
+    #WANT breq MJ_L0
+    brne   MJ_L1
+    jmp    MJ_L0
+
+    # then label for if
+MJ_L1:
+
+    # Load constant int 3
+    ldi    r24,lo8(3)
+    ldi    r25,hi8(3)
     # push two byte expression onto stack
     push   r25
     push   r24
@@ -33,9 +55,9 @@ main:
     pop    r25
     push   r24
 
-    # Load constant int 2
-    ldi    r24,lo8(2)
-    ldi    r25,hi8(2)
+    # Load constant int 4
+    ldi    r24,lo8(4)
+    ldi    r25,hi8(4)
     # push two byte expression onto stack
     push   r25
     push   r24
@@ -61,6 +83,13 @@ main:
     pop    r24
     call   _Z6DrawPxhhh
     call   _Z12DisplaySlatev
+    jmp    MJ_L2
+
+    # else label for if
+MJ_L0:
+
+    # done label for if
+MJ_L2:
 
 
 /* epilogue start */

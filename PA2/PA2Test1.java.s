@@ -47,8 +47,8 @@ main:
     pop    r25
     push   r24
 
-    # Color expression Meggy.Color.RED
-    ldi    r22,1
+    # Color expression Meggy.Color.BLUE
+    ldi    r22,5
     # push one byte expression onto stack
     push   r22
 

@@ -1,0 +1,21 @@
+digraph ASTGraph {
+0 [ label="Program" ];
+1 [ label="MainClass" ];
+0 -> 1
+2 [ label="BlockStatement" ];
+1 -> 2
+3 [ label="WhileStatement" ];
+2 -> 3
+4 [ label="EqualExp" ];
+3 -> 4
+5 [ label="IntLiteral\n3" ];
+4 -> 5
+6 [ label="IntLiteral\n3" ];
+4 -> 6
+7 [ label="BlockStatement" ];
+3 -> 7
+8 [ label="MeggyDelay" ];
+7 -> 8
+9 [ label="IntLiteral\n3" ];
+8 -> 9
+}
